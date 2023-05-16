@@ -1,0 +1,21 @@
+{
+  "name": "playwright-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/skkts/playwright-course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/skkts/playwright-course/issues"
+  },
+  "homepage": "https://github.com/skkts/playwright-course#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.33.0"
+  }
+}
