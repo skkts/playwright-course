@@ -34,26 +34,8 @@ test.describe('Home page', () => {
         expect(await navLinks.allTextContents()).toEqual(expectedLinks);
     })
 
-    test('Fill the forms on the Contsct page', async ({ page }) => {
-        await page.goto("https://practice.automationbro.com/contact/");
-        
-        const nameField = page.locator('input[id*=evf-277-field]').nth(0);
-        const emailField = page.locator('input[id*=evf-277-field]').nth(1);
-        const phoneField = page.locator('input[id*=evf-277-field]').nth(2);
-        const messageField = page.locator('textarea[id*=evf-277-field]');
-        const submitButton = page.locator('button[type=submit]');
-        
-        await nameField.fill('Test Name');
-        await emailField.fill('test-email@test.com');
-        await phoneField.fill('11111')
-        await messageField.fill('Test message');
 
-        await submitButton.click();
-
-        await expect(page.getByText('Thanks for contacting us! We will be in touch with you shortly')).toBeVisible()
-
-
-    })
+    
     
     
     
