@@ -14,9 +14,12 @@ test.describe('The Contact page', () => {
         await emailField.fill('test-email@test.com');
         await phoneField.fill('11111')
         await messageField.fill('Test message');
+
+        await expect.soft(messageField).toHaveText('Failed text in the message field');
+
         await submitButton.click();
     
-        await expect(page.getByText('Thanks for contacting us! We will be in touch with you shortly')).toBeVisible()
+        await expect(page.getByText('Thanks for contacting us! We will be in touch with you shortly')).toBeVisible();
     })
 })
 
