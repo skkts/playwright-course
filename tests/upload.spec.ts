@@ -23,6 +23,8 @@ test.describe('Upload File', () => {
       })
       await page.setInputFiles('input#upfile_1', filePath);
       await page.locator('#upload_1').click();
+      await (page.locator('#wfu_messageblock_header_1_label_1'))
+        .waitFor({ state: 'visible', timeout: 10000 });
       await expect(page.locator('#wfu_messageblock_header_1_label_1'))
         .toContainText('uploaded successfully');
     })  
