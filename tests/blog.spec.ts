@@ -1,16 +1,17 @@
 import { test, expect } from "@playwright/test"
+import BlogPage from '../pages/blog.page'
 
 test.describe('The Blog page', () => {
+    let blogPage: BlogPage;
     test('Verify recent posts count and verify the length of each article titles', async ({ page }) => {
-        
-        await page.goto("https://practice.automationbro.com/blog/");
+        blogPage = new BlogPage(page);
 
-        const recentPostsList = page.locator('#recent-posts-3 ul li');
-        
-        for (const el of await recentPostsList.elementHandles()) {
+        await blogPage.navigate();
+
+        for (const el of await blogPage.getPostsElement()) {
             expect(((await el.textContent())?.trim())?.length).toBeGreaterThan(10);
         }
 
-        expect(await recentPostsList.count()).toEqual(5);
+        expect(await blogPage.getPostsCount()).toEqual(5);
     })
 })
