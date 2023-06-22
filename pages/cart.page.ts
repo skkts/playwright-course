@@ -14,7 +14,7 @@ class CartPage {
     }
 
     navigate() {
-        this.page.goto("https://practice.automationbro.com/cart/");
+        this.page.goto("/cart/");
     }
 }
 

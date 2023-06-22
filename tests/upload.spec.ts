@@ -5,24 +5,21 @@ const path = require('path');
 test.describe('Upload File', () => {
   let cartPage: CartPage;
 
-    test('Should upload a test file', async ({ page }) => {
-      cartPage = new CartPage(page);
+  test.beforeEach(async ({ page }) => {
+    cartPage = new CartPage(page);
+    await cartPage.navigate(); 
+  })
+  
 
-      await cartPage.navigate();  
-      // await page.goto("https://practice.automationbro.com/cart/");  
-
+    test('Should upload a test file', async ({ page }) => { 
       const filePath = path.join(__dirname, '../data/cat.png');
-
       cartPage.uploadComponent().uploadFile(filePath);
-
       await expect(cartPage.uploadComponent().successTxt)
         .toContainText('uploaded successfully');
     })
     
-    test('Should upload a test file on a hidden input field', async ({ page }) => {
-      await page.goto("https://practice.automationbro.com/cart/");  
+    test('Should upload a test file on a hidden input field', async ({ page }) => { 
       const filePath = path.join(__dirname, '../data/cat.png');
-
       await page.evaluate(() => {
         const selector = document.querySelector('input#upfile_1');
         if (selector) {
